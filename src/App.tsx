@@ -1,5 +1,12 @@
-function App() {
-  return <h1>My starter project</h1>;
-}
+import { GlobalStyle } from "./styles/global";
 
-export default App;
+import CVGenerator from "./components/CVGenerator";
+
+export default function App() {
+  return (
+    <>
+      <GlobalStyle />
+      <CVGenerator />
+    </>
+  );
+}
