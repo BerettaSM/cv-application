@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
+    :root {
+        --THEME_COLOR_01: #0F4C75;
+        --THEME_COLOR_02: #3282B8;
+        --THEME_COLOR_03: #BBE1FA;
+        --THEME_COLOR_04: #1B262C;
+    }
+
     *,
     *::before,
     *::after {
