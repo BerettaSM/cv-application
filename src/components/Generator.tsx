@@ -1,19 +1,19 @@
 import styled from "styled-components";
 
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import CVDraft from "./CVDraft";
-import CVForm from "./CVForm";
+import Draft from "./Draft";
+import Form from "./Form";
 import { PADDING } from "../constants";
-// import CVActions from "./CVActions";
+// import Actions from "./Actions";
 
-export default function CVGenerator() {
+export default function Generator() {
   return (
     <Wrapper>
       <Title>CV Generator</Title>
       <Main>
-        <CVForm />
-        <CVDraft />
-        {/* <CVActions /> */}
+        <Form />
+        <Draft />
+        {/* <Actions /> */}
       </Main>
     </Wrapper>
   );

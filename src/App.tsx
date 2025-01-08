@@ -1,12 +1,11 @@
 import { GlobalStyle } from "./styles/global";
-
-import CVGenerator from "./components/CVGenerator";
+import { Generator } from "./components";
 
 export default function App() {
   return (
     <>
       <GlobalStyle />
-      <CVGenerator />
+      <Generator />
     </>
   );
 }
