@@ -26,6 +26,8 @@ export const GlobalStyle = createGlobalStyle`
     body {
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
+        color: var(--THEME_COLOR_01);
+        background-color: var(--THEME_COLOR_03);
     }
 
     img,
