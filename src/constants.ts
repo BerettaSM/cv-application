@@ -1,3 +1,5 @@
+export const BORDER_RADIUS = "8px";
+
 export const PADDING = {
   sm: "8px",
   md: "16px",
