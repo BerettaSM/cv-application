@@ -1,262 +1,264 @@
 {
+  "personal": {
     "name": "John Doe",
     "address": "Your Address",
     "socials": {
-        "phone": "555 55555-5555",
-        "email": "thisis@fakeemail.com",
-        "website": "themagicalmammal.vercel.app",
-        "github": "themagicalmammal",
-        "linkedIn": "themagicalmammal"
+      "phone": "555 55555-5555",
+      "email": "thisis@fakeemail.com",
+      "website": "themagicalmammal.vercel.app",
+      "github": "themagicalmammal",
+      "linkedIn": "themagicalmammal"
     },
-    "profile": "A University of Leeds graduate student who is enrolled in the Data Science and Analysis programme. Dedicated to software engineering, having two or more years of expertise, and specialising in full‑stack web development, algorithms, and machine learning. Searching mostly for Machine Learning, Data Engineer, and Python Development positions.",
-    "education": [
+    "profile": "A University of Leeds graduate student who is enrolled in the Data Science and Analysis programme. Dedicated to software engineering, having two or more years of expertise, and specialising in full‑stack web development, algorithms, and machine learning. Searching mostly for Machine Learning, Data Engineer, and Python Development positions."
+  },
+  "education": [
+    {
+      "title": "University of Leeds",
+      "location": "Leeds, UK",
+      "description": "MSc in Data Science and Analysis",
+      "timeline": "Sept 2021 - Current",
+      "bulletPoints": [
         {
-            "title": "University of Leeds",
-            "location": "Leeds, UK",
-            "description": "MSc in Data Science and Analysis",
-            "timeline": "Sept 2021 - Current",
-            "bulletPoints": [
-                {
-                    "bold": null,
-                    "text": "Head of School International Excellence Scholar"
-                },
-                {
-                    "bold": null,
-                    "text": "Working as a PAL Mentor"
-                },
-                {
-                    "bold": "Courses",
-                    "text": "Data Science, Programming for Data Science, Knowledge Representation and Reasoning, Statistical Theory and Methods, LearningSkills through Case Studies, Artificial Intelligence, Machine Learning, Statistical Learning"
-                }
-            ]
+          "bold": null,
+          "text": "Head of School International Excellence Scholar"
         },
         {
-            "title": "Madhav Institute of Technology and Science",
-            "location": "Gwalior, India",
-            "description": "BTech in Information Technology",
-            "timeline": "May 2016 ‑ May 2020",
-            "bulletPoints": [
-                {
-                    "bold": null,
-                    "text": "Graduated with Distinction"
-                },
-                {
-                    "bold": null,
-                    "text": "Selected for Industrial Visit among the top of the class"
-                }
-            ]
+          "bold": null,
+          "text": "Working as a PAL Mentor"
         },
         {
-            "title": "Atomic Energy Central School",
-            "location": "Indore, India",
-            "description": "High School",
-            "timeline": "Apr 2014 ‑ Apr 2016",
-            "bulletPoints": [
-                {
-                    "bold": null,
-                    "text": "Passed with Distinction"
-                },
-                {
-                    "bold": null,
-                    "text": "Specialised in Physics, Chemistry, and Maths with Computer Science"
-                }
-            ]
+          "bold": "Courses",
+          "text": "Data Science, Programming for Data Science, Knowledge Representation and Reasoning, Statistical Theory and Methods, LearningSkills through Case Studies, Artificial Intelligence, Machine Learning, Statistical Learning"
         }
-    ],
-    "experience": [
+      ]
+    },
+    {
+      "title": "Madhav Institute of Technology and Science",
+      "location": "Gwalior, India",
+      "description": "BTech in Information Technology",
+      "timeline": "May 2016 ‑ May 2020",
+      "bulletPoints": [
         {
-            "title": "Indian Institute of Technology",
-            "location": "Indore, India",
-            "description": "Software Engineer",
-            "timeline": "Sept 2020 ‑ Aug 2021",
-            "bulletPoints": [
-                {
-                    "bold": null,
-                    "text": "Collaborated with a four‑person team to develop a CNN model that utilised YOLO as a foundation to improve the accuracy of ambient lighting conditions in the Mobile net architecture."
-                },
-                {
-                    "bold": null,
-                    "text": "Automated and optimised the data handling process for traffic signs, working with Ubuntu 20.04 did shell scripting, and employed other Linuxtools."
-                },
-                {
-                    "bold": null,
-                    "text": "Significantly boosted the model’s accuracy by 60%, which was yielding an accuracy of 70‑78% under Indian street light. The older models, had an accuracy of 10‑15%."
-                },
-                {
-                    "bold": "Technical Skills",
-                    "text": "Python with PyTorch, NumPy, Matplotlib, Pandas, Scikit‑learn, C++, Ubuntu Linux, Linux tools, Apt, Scripting, Git."
-                },
-                {
-                    "bold": "Soft Skills",
-                    "text": "Teamwork, Time Management, Communication, Presentation skills."
-                }
-            ]
+          "bold": null,
+          "text": "Graduated with Distinction"
+        },
+        {
+          "bold": null,
+          "text": "Selected for Industrial Visit among the top of the class"
         }
-    ],
-    "projects": [
+      ]
+    },
+    {
+      "title": "Atomic Energy Central School",
+      "location": "Indore, India",
+      "description": "High School",
+      "timeline": "Apr 2014 ‑ Apr 2016",
+      "bulletPoints": [
         {
-            "title": "The Relation between GDP and IMR",
-            "location": "Leeds, UK",
-            "description": "University of Leeds",
-            "timeline": "Feb 2022 ‑ Apr 2022",
-            "bulletPoints": [
-                {
-                    "bold": null,
-                    "text": "Analysing data from 1960 to 2020 and discover patterns in the data that show trends between Gross domestic product per capita, Infant Mortality rate, Literacy Rate, and Industrial Development."
-                },
-                {
-                    "bold": null,
-                    "text": "Study cross‑sectional, longitudinal, and among various countries to find variations in trends and get the historical data to back up the change in the trend of our data."
-                },
-                {
-                    "bold": null,
-                    "text": "Specific case studies were traced back to trends seen in the UK and how they affected the GDP and IMR."
-                },
-                {
-                    "bold": "Technical Skills",
-                    "text": "Tableau, Overleaf, LaTeX."
-                },
-                {
-                    "bold": "Soft Skills",
-                    "text": "Time Management, Teamwork, Presentation skills, Report writing."
-                }
-            ]
+          "bold": null,
+          "text": "Passed with Distinction"
         },
         {
-            "title": "IPL Analysis",
-            "location": "Leeds, UK",
-            "description": "University of Leeds",
-            "timeline": "Nov 2021 ‑ Dec 2021",
-            "bulletPoints": [
-                {
-                    "bold": null,
-                    "text": "Analysing data from 2008 to 2015 to discover patterns such as trends, correlations, and probabilities."
-                },
-                {
-                    "bold": null,
-                    "text": "Finding the differences between the best teams and players in various fields, as well as their performance on the field and the opponents."
-                },
-                {
-                    "bold": "Technical Skills",
-                    "text": "Python with Pandas, matplotlib, Seaborn."
-                },
-                {
-                    "bold": "Soft Skills",
-                    "text": "Presentation skills, Leadership, Teamwork, Logical Thinking."
-                }
-            ]
-        },
-        {
-            "title": "Study of the behavior of Serial Killers",
-            "location": "Leeds, UK",
-            "description": "University of Leeds",
-            "timeline": "Oct 2021 ‑ Dec 2021",
-            "bulletPoints": [
-                {
-                    "bold": null,
-                    "text": "Study of serial killers behavior with various motives such as convenience (did not want children or spouse), enjoyment, power, escape, or avoiding arrest."
-                },
-                {
-                    "bold": null,
-                    "text": "Finding the differences between the best teams and players in various fields, as well as their performance on the field and the opponents."
-                },
-                {
-                    "bold": "Technical Skills",
-                    "text": "R with ggplot2, tidyr, R Markdown."
-                },
-                {
-                    "bold": "Soft Skills",
-                    "text": "Report writing, Logical Thinking, Critical Thinking."
-                }
-            ]
+          "bold": null,
+          "text": "Specialised in Physics, Chemistry, and Maths with Computer Science"
         }
-    ],
-    "skills": [
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "title": "Indian Institute of Technology",
+      "location": "Indore, India",
+      "description": "Software Engineer",
+      "timeline": "Sept 2020 ‑ Aug 2021",
+      "bulletPoints": [
         {
-            "title": "Programming",
-            "description": "Python (Pandas, PyTorch, NumPy, Scikit‑learn. etc.), R(ggplot2), PHP, C/C++, HTML/CSS, JavaScript, SQL."
+          "bold": null,
+          "text": "Collaborated with a four‑person team to develop a CNN model that utilised YOLO as a foundation to improve the accuracy of ambient lighting conditions in the Mobile net architecture."
         },
         {
-            "title": "Miscellaneous",
-            "description": "Linux, Shell (Bash/Zsh), LATEX(Overleaf/R Markdown), Tableau, Microsoft Office, Firebase, Git."
+          "bold": null,
+          "text": "Automated and optimised the data handling process for traffic signs, working with Ubuntu 20.04 did shell scripting, and employed other Linuxtools."
         },
         {
-            "title": "Soft Skills",
-            "description": "Time Management, Teamwork, Problem‑solving, Documentation, Engaging Presentation."
+          "bold": null,
+          "text": "Significantly boosted the model’s accuracy by 60%, which was yielding an accuracy of 70‑78% under Indian street light. The older models, had an accuracy of 10‑15%."
+        },
+        {
+          "bold": "Technical Skills",
+          "text": "Python with PyTorch, NumPy, Matplotlib, Pandas, Scikit‑learn, C++, Ubuntu Linux, Linux tools, Apt, Scripting, Git."
+        },
+        {
+          "bold": "Soft Skills",
+          "text": "Teamwork, Time Management, Communication, Presentation skills."
         }
-    ],
-    "achievements": [
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "title": "The Relation between GDP and IMR",
+      "location": "Leeds, UK",
+      "description": "University of Leeds",
+      "timeline": "Feb 2022 ‑ Apr 2022",
+      "bulletPoints": [
         {
-            "year": 2019,
-            "title": "319/340",
-            "description": "Graduate Record Examinations (GRE)",
-            "location": "India"
+          "bold": null,
+          "text": "Analysing data from 1960 to 2020 and discover patterns in the data that show trends between Gross domestic product per capita, Infant Mortality rate, Literacy Rate, and Industrial Development."
         },
         {
-            "year": 2018,
-            "title": "Elite",
-            "description": "DBMS NPTEL Exam",
-            "location": "India"
+          "bold": null,
+          "text": "Study cross‑sectional, longitudinal, and among various countries to find variations in trends and get the historical data to back up the change in the trend of our data."
         },
         {
-            "year": 2018,
-            "title": "Elite",
-            "description": "C NPTEL Exam",
-            "location": "India"
+          "bold": null,
+          "text": "Specific case studies were traced back to trends seen in the UK and how they affected the GDP and IMR."
         },
         {
-            "year": 2019,
-            "title": "Winner",
-            "description": "Smart India Hackathon (SIH)",
-            "location": "India"
+          "bold": "Technical Skills",
+          "text": "Tableau, Overleaf, LaTeX."
         },
         {
-            "year": 2014,
-            "title": "Level 3",
-            "description": "TablaNiketan Exam",
-            "location": "India"
-        },
-        {
-            "year": 2014,
-            "title": "Level 1",
-            "description": "National Talent Search Exam (NTSE)",
-            "location": "India"
+          "bold": "Soft Skills",
+          "text": "Time Management, Teamwork, Presentation skills, Report writing."
         }
-    ],
-    "interests": [
+      ]
+    },
+    {
+      "title": "IPL Analysis",
+      "location": "Leeds, UK",
+      "description": "University of Leeds",
+      "timeline": "Nov 2021 ‑ Dec 2021",
+      "bulletPoints": [
         {
-            "title": "Cooking",
-            "description": "I love cooking. I am an expert in most Indian‑style cooking, enjoy baking and making my own pizza."
+          "bold": null,
+          "text": "Analysing data from 2008 to 2015 to discover patterns such as trends, correlations, and probabilities."
         },
         {
-            "title": "Linux",
-            "description": "Since 2017, I have been in love with Linux. I recently switched to Mac OS, which feels like a premium of Linux."
+          "bold": null,
+          "text": "Finding the differences between the best teams and players in various fields, as well as their performance on the field and the opponents."
         },
         {
-            "title": "Technical Writing",
-            "description": "I write descriptive blogs about Linux some of them are on my GitHub and Medium."
+          "bold": "Technical Skills",
+          "text": "Python with Pandas, matplotlib, Seaborn."
         },
         {
-            "title": "Art",
-            "description": "I have always enjoyed drawing since I was a child. Recently, I have shifted to digital art mostly on Deviantart."
-        },
-        {
-            "title": "Video Games",
-            "description": "I always had the gaming gene. I mostly play on my phone and occasionally on my switch."
-        },
-        {
-            "title": "Swimming",
-            "description": "I started swimming when I was 12. Going through submerged things while holding my breath was the most exciting part."
+          "bold": "Soft Skills",
+          "text": "Presentation skills, Leadership, Teamwork, Logical Thinking."
         }
-    ],
-    "languages": [
+      ]
+    },
+    {
+      "title": "Study of the behavior of Serial Killers",
+      "location": "Leeds, UK",
+      "description": "University of Leeds",
+      "timeline": "Oct 2021 ‑ Dec 2021",
+      "bulletPoints": [
         {
-            "title": "English",
-            "description": "Professional proficiency."
+          "bold": null,
+          "text": "Study of serial killers behavior with various motives such as convenience (did not want children or spouse), enjoyment, power, escape, or avoiding arrest."
         },
         {
-            "title": "Hindi",
-            "description": "Native proficiency"
+          "bold": null,
+          "text": "Finding the differences between the best teams and players in various fields, as well as their performance on the field and the opponents."
+        },
+        {
+          "bold": "Technical Skills",
+          "text": "R with ggplot2, tidyr, R Markdown."
+        },
+        {
+          "bold": "Soft Skills",
+          "text": "Report writing, Logical Thinking, Critical Thinking."
         }
-    ]
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "title": "Programming",
+      "description": "Python (Pandas, PyTorch, NumPy, Scikit‑learn. etc.), R(ggplot2), PHP, C/C++, HTML/CSS, JavaScript, SQL."
+    },
+    {
+      "title": "Miscellaneous",
+      "description": "Linux, Shell (Bash/Zsh), LATEX(Overleaf/R Markdown), Tableau, Microsoft Office, Firebase, Git."
+    },
+    {
+      "title": "Soft Skills",
+      "description": "Time Management, Teamwork, Problem‑solving, Documentation, Engaging Presentation."
+    }
+  ],
+  "achievements": [
+    {
+      "year": 2019,
+      "title": "319/340",
+      "description": "Graduate Record Examinations (GRE)",
+      "location": "India"
+    },
+    {
+      "year": 2018,
+      "title": "Elite",
+      "description": "DBMS NPTEL Exam",
+      "location": "India"
+    },
+    {
+      "year": 2018,
+      "title": "Elite",
+      "description": "C NPTEL Exam",
+      "location": "India"
+    },
+    {
+      "year": 2019,
+      "title": "Winner",
+      "description": "Smart India Hackathon (SIH)",
+      "location": "India"
+    },
+    {
+      "year": 2014,
+      "title": "Level 3",
+      "description": "TablaNiketan Exam",
+      "location": "India"
+    },
+    {
+      "year": 2014,
+      "title": "Level 1",
+      "description": "National Talent Search Exam (NTSE)",
+      "location": "India"
+    }
+  ],
+  "interests": [
+    {
+      "title": "Cooking",
+      "description": "I love cooking. I am an expert in most Indian‑style cooking, enjoy baking and making my own pizza."
+    },
+    {
+      "title": "Linux",
+      "description": "Since 2017, I have been in love with Linux. I recently switched to Mac OS, which feels like a premium of Linux."
+    },
+    {
+      "title": "Technical Writing",
+      "description": "I write descriptive blogs about Linux some of them are on my GitHub and Medium."
+    },
+    {
+      "title": "Art",
+      "description": "I have always enjoyed drawing since I was a child. Recently, I have shifted to digital art mostly on Deviantart."
+    },
+    {
+      "title": "Video Games",
+      "description": "I always had the gaming gene. I mostly play on my phone and occasionally on my switch."
+    },
+    {
+      "title": "Swimming",
+      "description": "I started swimming when I was 12. Going through submerged things while holding my breath was the most exciting part."
+    }
+  ],
+  "languages": [
+    {
+      "title": "English",
+      "description": "Professional proficiency."
+    },
+    {
+      "title": "Hindi",
+      "description": "Native proficiency"
+    }
+  ]
 }

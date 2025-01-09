@@ -27,11 +27,15 @@ export interface DetailedEntry extends SimpleEntry {
   bulletPoints: BulletPoint[];
 }
 
-export interface Resume {
+export interface PersonalInfo {
   name: string;
   address: string;
   socials: Socials;
   profile: string;
+}
+
+export interface Resume {
+  personal: PersonalInfo;
   education: DetailedEntry[];
   experience: DetailedEntry[];
   projects: DetailedEntry[];
