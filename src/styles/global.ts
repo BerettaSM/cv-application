@@ -2,10 +2,15 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     :root {
-        --THEME_COLOR_01: #0F4C75;
-        --THEME_COLOR_02: #3282B8;
-        --THEME_COLOR_03: #BBE1FA;
-        --THEME_COLOR_04: #1B262C;
+        --THEME_COLOR_01:hsl(204, 77.30%, 25.90%);
+        --THEME_COLOR_02:hsl(204, 57.30%, 45.90%);
+        --THEME_COLOR_03:hsl(204, 86.30%, 85.70%);
+        --THEME_COLOR_04:hsl(201, 23.90%, 13.90%);
+        --COLOR_GRAY-100: hsl(0, 0%, 10%);
+        --COLOR_GRAY-300: hsl(0, 0%, 25%);
+        --COLOR_GRAY-500: hsl(0, 0%, 50%);
+        --COLOR_GRAY-700: hsl(0, 0%, 75%);
+        --COLOR_GRAY-900: hsl(0, 0%, 90%);
     }
 
     *,
