@@ -26,5 +26,5 @@ const SVG = styled.img`
 `;
 
 const Text = styled.span`
-  font-size: 0.5rem;
+  font-size: inherit;
 `;

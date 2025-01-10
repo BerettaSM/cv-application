@@ -16,7 +16,7 @@ export default function PersonalEntrySection({
     <BaseEntrySection>
       <Title>{personal.name}</Title>
       <Address>{personal.address}</Address>
-      <Spacer size={12} />
+      <Spacer size={6} />
       <SocialsDisplay socials={personal.socials} />
     </BaseEntrySection>
   );

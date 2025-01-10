@@ -39,8 +39,9 @@ export default function SocialsDisplay({ socials }: SocialsDisplayProps) {
 
 const Container = styled.section`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 0.3rem;
   align-items: center;
-  font-size: 0.65rem;
+  font-size: 0.5rem;
   color: var(--COLOR_GRAY-100);
 `;
