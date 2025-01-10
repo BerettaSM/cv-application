@@ -1,11 +1,11 @@
 import { GlobalStyle } from "./styles/global";
-import { Generator } from "./components";
+import { ResumeGenerator } from "./components";
 
 export default function App() {
   return (
     <>
       <GlobalStyle />
-      <Generator />
+      <ResumeGenerator />
     </>
   );
 }

@@ -1,25 +1,25 @@
 import styled from "styled-components";
 
-import MaxWidthWrapper from "./MaxWidthWrapper";
-import Draft from "./Draft";
-import Form from "./Form";
-import { PADDING } from "../constants";
+import MaxWidthWrapper from "../MaxWidthWrapper";
+import Draft from "../Draft";
+import Form from "../Form";
+import { BORDER_RADIUS, PADDING } from "../../constants";
 // import Actions from "./Actions";
 
-export default function Generator() {
+export default function ResumeGenerator() {
   return (
-    <Wrapper>
+    <Container>
       <Title>CV Generator</Title>
       <Main>
         <Form />
         <Draft />
         {/* <Actions /> */}
       </Main>
-    </Wrapper>
+    </Container>
   );
 }
 
-const Wrapper = styled(MaxWidthWrapper)`
+const Container = styled(MaxWidthWrapper)`
   height: 100dvh;
   display: flex;
   flex-direction: column;
@@ -40,5 +40,7 @@ const Main = styled.main`
   & > * {
     flex: 1 1 0px;
     background-color: var(--THEME_COLOR_02);
+    padding: ${() => PADDING.sm};
+    border-radius: ${() => BORDER_RADIUS};
   }
 `;

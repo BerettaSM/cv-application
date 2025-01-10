@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { PADDING } from "../constants";
+import { PADDING } from "../../constants";
 
 const MaxWidthWrapper = styled.div`
   margin: auto;
