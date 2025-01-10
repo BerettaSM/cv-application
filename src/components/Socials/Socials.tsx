@@ -23,7 +23,9 @@ interface SocialsDisplayProps {
 }
 
 export default function SocialsDisplay({ socials }: SocialsDisplayProps) {
-  const keys = Object.keys(socials) as (keyof typeof socials)[];
+  const keys = (Object.keys(socials) as (keyof typeof socials)[]).filter(
+    (key) => socials[key] && socials[key].trim() != "",
+  );
 
   return (
     <Container>
