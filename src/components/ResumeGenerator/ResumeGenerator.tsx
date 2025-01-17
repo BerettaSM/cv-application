@@ -22,11 +22,15 @@ export default function ResumeGenerator() {
 const Container = styled(MaxWidthWrapper)`
   height: 100dvh;
   display: flex;
+  padding-block: ${() => PADDING.md};
   flex-direction: column;
 `;
 
 const Title = styled.h1`
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5dvh;
 `;
 
 const Main = styled.main`

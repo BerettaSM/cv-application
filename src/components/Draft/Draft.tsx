@@ -12,4 +12,6 @@ export default function Draft() {
   );
 }
 
-const Container = styled.section``;
+const Container = styled.section`
+  position: relative;
+`;
