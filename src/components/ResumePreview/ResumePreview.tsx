@@ -54,7 +54,6 @@ const Container = styled.div`
   position: relative;
   background-color: #fff;
   font-family: "Roboto", Helvetica, sans-serif;
-  height: 100%;
   padding: var(--md) var(--lg);
   font-size: 1rem;
   max-height: calc(

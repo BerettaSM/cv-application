@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MaxWidthWrapper from "../MaxWidthWrapper";
 import Draft from "../Draft";
 import Form from "../Form";
-import { BORDER_RADIUS, PADDING } from "../../constants";
+import { PADDING } from "../../constants";
 // import Actions from "./Actions";
 
 export default function ResumeGenerator() {
@@ -35,16 +35,9 @@ const Title = styled.h1`
 
 const Main = styled.main`
   flex: 1;
+  background-color: var(--THEME_COLOR_03);
   display: flex;
+  align-items: center;
   gap: 8px;
   padding: ${() => PADDING.sm};
-
-  background-color: var(--THEME_COLOR_03);
-
-  & > * {
-    flex: 1 1 0px;
-    background-color: var(--THEME_COLOR_02);
-    padding: ${() => PADDING.sm};
-    border-radius: ${() => BORDER_RADIUS};
-  }
 `;

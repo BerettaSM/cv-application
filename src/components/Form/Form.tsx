@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 import styled from "styled-components";
+import { BORDER_RADIUS, PADDING } from "../../constants";
 
 export default function CVForm() {
   function handleSubmit(event: FormEvent) {
@@ -28,4 +29,9 @@ export default function CVForm() {
   );
 }
 
-const Form = styled.form``;
+const Form = styled.form`
+  flex: 1 1 0px;
+  background-color: var(--THEME_COLOR_02);
+  padding: ${() => PADDING.sm};
+  border-radius: ${() => BORDER_RADIUS};
+`;
