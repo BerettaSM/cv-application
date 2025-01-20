@@ -12,7 +12,7 @@ declare function html2pdf(
 // declare type Html2PdfWorkerRoot = Html2PdfWorkerRoot;
 declare type Html2PdfElement = string | HTMLElement;
 
-declare interface Html2PdfWorkerRoot {
+declare interface Html2PdfWorkerRoot extends Html2PdfworkerOptions {
   from(
     element: Html2PdfElement,
     type?: "string" | "element" | "canvas" | "img",
@@ -65,10 +65,18 @@ declare interface Html2PdfWorkerOptions {
     [key: string]: string | number | undefined;
   };
   html2canvas?: { scale?: number };
-  jsPdf: {
+  jsPdf?: {
     unit?: string;
     format?: string;
     orientation?: "portrait" | "landscape";
   };
   enableLinks?: boolean;
+  pagebreak?: {
+    mode?:
+      | ("avoid-all" | "css" | "legacy")
+      | ("avoid-all" | "css" | "legacy")[];
+    before?: string;
+    after?: string;
+    avoid?: keyof HTMLElementTagNameMap;
+  };
 }
