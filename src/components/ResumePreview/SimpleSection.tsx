@@ -2,22 +2,22 @@ import styled from "styled-components";
 import { type SimpleEntry as SimpleEntryProps } from "../../types";
 
 import { PADDING } from "../../constants";
-import BaseResumeSection from "./BaseResumeSection";
-import EntryTitle from "./ResumeEntryTitle";
+import BaseSection from "./BaseSection";
+import SectionTitle from "./SectionTitle";
 
-export default function SimpleResumeSection({
+export default function SimpleSection({
   title,
   description,
 }: SimpleEntryProps) {
   return (
     <Container>
-      <EntryTitle>{title}</EntryTitle>
+      <SectionTitle>{title}</SectionTitle>
       <Description>{description}</Description>
     </Container>
   );
 }
 
-const Container = styled(BaseResumeSection)``;
+const Container = styled(BaseSection)``;
 
 const Description = styled.p`
   font-size: 0.6em;

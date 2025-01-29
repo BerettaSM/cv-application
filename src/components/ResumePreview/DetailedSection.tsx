@@ -2,22 +2,22 @@ import { Fragment } from "react";
 import styled from "styled-components";
 import { type DetailedEntry as IDetailedEntry } from "../../types";
 
-import BaseResumeSection from "./BaseResumeSection";
-import EntryTitle from "./ResumeEntryTitle";
+import BaseSection from "./BaseSection";
+import SectionTitle from "./SectionTitle";
 import DetailedEntry from "./DetailedEntry";
 
-interface DetailedEntrySectionProps {
+interface DetailedSectionProps {
   title: string;
   entries: IDetailedEntry[];
 }
 
-export default function DetailedEntrySection({
+export default function DetailedSection({
   title,
   entries,
-}: DetailedEntrySectionProps) {
+}: DetailedSectionProps) {
   return (
     <Container>
-      <EntryTitle>{title}</EntryTitle>
+      <SectionTitle>{title}</SectionTitle>
       {entries.map((entry) => (
         <Fragment key={entry.title}>
           <DetailedEntry entry={entry} />
@@ -27,4 +27,4 @@ export default function DetailedEntrySection({
   );
 }
 
-const Container = styled(BaseResumeSection)``;
+const Container = styled(BaseSection)``;

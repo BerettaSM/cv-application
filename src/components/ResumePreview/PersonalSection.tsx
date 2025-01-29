@@ -1,24 +1,24 @@
 import styled from "styled-components";
 import { type PersonalInfo } from "../../types";
 
-import BaseEntry from "./BaseResumeSection";
-import SocialsDisplay from "../Socials/Socials";
+import BaseSection from "./BaseSection";
+import SocialsDisplay from "./Socials";
 import Spacer from "../Spacer";
 
-interface PersonalEntrySectionProps {
+interface PersonalSectionProps {
   personal: Omit<PersonalInfo, "profile">;
 }
 
-export default function PersonalEntrySection({
+export default function PersonalSection({
   personal: { name, address, socials },
-}: PersonalEntrySectionProps) {
+}: PersonalSectionProps) {
   return (
-    <BaseEntry>
+    <BaseSection>
       <Title>{name}</Title>
       <Address>{address}</Address>
       <Spacer size={3} />
       <SocialsDisplay socials={socials} />
-    </BaseEntry>
+    </BaseSection>
   );
 }
 

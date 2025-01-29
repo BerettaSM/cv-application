@@ -1,14 +1,13 @@
+import { useRef } from "react";
 import styled from "styled-components";
 import { type Resume } from "../../types";
+import html2pdf from "html2pdf.js";
 
 import { PADDING } from "../../constants";
-import PersonalEntrySection from "./PersonalEntrySection";
-import SimpleResumeSection from "./SimpleResumeSection";
+import PersonalSection from "./PersonalSection";
+import SimpleSection from "./SimpleSection";
+import DetailedSection from "./DetailedSection";
 import Spacer from "../Spacer";
-import DetailedEntrySection from "./DetailedEntrySection";
-
-import html2pdf from "html2pdf.js";
-import { useRef } from "react";
 
 interface ResumePreviewProps {
   resume: Resume;
@@ -38,15 +37,15 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
     <>
       <button onClick={doIt}>Save?</button>
       <Container ref={ref}>
-        <PersonalEntrySection personal={personal} />
+        <PersonalSection personal={personal} />
         <Spacer size={16} />
-        <SimpleResumeSection title="Personal Profile" description={profile} />
+        <SimpleSection title="Personal Profile" description={profile} />
         <Spacer size={16} />
-        <DetailedEntrySection title="Education" entries={education} />
+        <DetailedSection title="Education" entries={education} />
         <Spacer size={16} />
-        <DetailedEntrySection title="Work Experience" entries={experience} />
+        <DetailedSection title="Work Experience" entries={experience} />
         <Spacer size={16} />
-        <DetailedEntrySection title="Projects" entries={projects} />
+        <DetailedSection title="Projects" entries={projects} />
       </Container>
     </>
   );

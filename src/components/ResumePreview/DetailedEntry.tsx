@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { type DetailedEntry as IDetailedEntry } from "../../types";
+
 import Spacer from "../Spacer";
 import BulletPoints from "./BulletPoints";
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { PADDING } from "../../constants";
 
-export default function ResumeEntryTitle({ children }: PropsWithChildren) {
+export default function SectionTitle({ children }: PropsWithChildren) {
   return (
     <Container>
       <Title>{children}</Title>
@@ -22,7 +22,7 @@ const Title = styled.h3`
   position: relative;
   background-color: #fff;
   color: var(--COLOR_GRAY-100);
-  font-weight: 500;
+  font-weight: 700;
   padding-inline-end: ${() => PADDING.sm};
   width: fit-content;
   z-index: 1;
