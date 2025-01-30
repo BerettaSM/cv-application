@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { type PersonalInfo } from "../../types";
+import { type PersonalInfo } from "../../../types";
 
-import BaseSection from "./BaseSection";
-import SocialsDisplay from "./Socials";
-import Spacer from "../Spacer";
+import { BaseSection } from ".";
+import SocialsDisplay from "../Socials";
+import Spacer from "../../Spacer";
 
 interface PersonalSectionProps {
   personal: Omit<PersonalInfo, "profile">;

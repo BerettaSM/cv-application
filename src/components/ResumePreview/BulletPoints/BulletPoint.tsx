@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { type BulletPoint as IBulletPoint } from "../../types";
+import { type BulletPoint as IBulletPoint } from "../../../types";
 
 interface BulletPointProps {
   bulletPoint: IBulletPoint;

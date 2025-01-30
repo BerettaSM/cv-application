@@ -3,10 +3,13 @@ import styled from "styled-components";
 import { type Resume } from "../../types";
 import html2pdf from "html2pdf.js";
 
+import {
+  PersonalSection,
+  SimpleSection,
+  DetailedSection,
+  ListSection,
+} from "./Sections";
 import { PADDING } from "../../constants";
-import PersonalSection from "./PersonalSection";
-import SimpleSection from "./SimpleSection";
-import DetailedSection from "./DetailedSection";
 import Spacer from "../Spacer";
 
 interface ResumePreviewProps {
@@ -14,7 +17,7 @@ interface ResumePreviewProps {
 }
 
 export default function ResumePreview({ resume }: ResumePreviewProps) {
-  const { education, experience, projects } = resume;
+  const { education, experience, projects, skills } = resume;
   const { profile, ...personal } = resume.personal;
 
   const ref = useRef<HTMLDivElement | null>(null);
@@ -46,6 +49,8 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
         <DetailedSection title="Work Experience" entries={experience} />
         <Spacer size={16} />
         <DetailedSection title="Projects" entries={projects} />
+        <Spacer size={16} />
+        <ListSection title="Skills" entries={skills} />
       </Container>
     </>
   );

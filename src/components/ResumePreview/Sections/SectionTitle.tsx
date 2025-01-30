@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import styled from "styled-components";
 
-import { PADDING } from "../../constants";
+import { PADDING } from "../../../constants";
 
 export default function SectionTitle({ children }: PropsWithChildren) {
   return (

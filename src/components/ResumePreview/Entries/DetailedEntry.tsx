@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { type DetailedEntry as IDetailedEntry } from "../../types";
+import { type DetailedEntry as IDetailedEntry } from "../../../types";
 
-import Spacer from "../Spacer";
-import BulletPoints from "./BulletPoints";
+import { BulletPoints } from "../BulletPoints";
+import Spacer from "../../Spacer";
 
 interface DetailedEntryProps {
   entry: IDetailedEntry;
@@ -10,19 +10,21 @@ interface DetailedEntryProps {
 
 export default function DetailedEntry({ entry }: DetailedEntryProps) {
   return (
-    <Container>
+    <>
       <Spacer size={8} />
-      <Grouper>
-        <Title>{entry.title}</Title>
-        <Location>{entry.location}</Location>
-      </Grouper>
-      <Grouper>
-        <Description>{entry.description}</Description>
-        <Timeline>{entry.timeline}</Timeline>
-      </Grouper>
-      <Spacer size={2} />
-      <BulletPoints bulletPoints={entry.bulletPoints} />
-    </Container>
+      <Container>
+        <Grouper>
+          <Title>{entry.title}</Title>
+          <Location>{entry.location}</Location>
+        </Grouper>
+        <Grouper>
+          <Description>{entry.description}</Description>
+          <Timeline>{entry.timeline}</Timeline>
+        </Grouper>
+        <Spacer size={2} />
+        <BulletPoints bulletPoints={entry.bulletPoints} />
+      </Container>
+    </>
   );
 }
 

@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { type SimpleEntry as SimpleEntryProps } from "../../types";
+import { type SimpleEntry as SimpleEntryProps } from "../../../types";
 
-import { PADDING } from "../../constants";
-import BaseSection from "./BaseSection";
-import SectionTitle from "./SectionTitle";
+import { PADDING } from "../../../constants";
+import { BaseSection, SectionTitle } from ".";
 
 export default function SimpleSection({
   title,

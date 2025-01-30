@@ -1,6 +1,7 @@
 import styled from "styled-components";
-import { type BulletPoint as IBulletPoint } from "../../types";
-import BulletPoint from "./BulletPoint";
+import { type BulletPoint as IBulletPoint } from "../../../types";
+
+import { BulletPoint } from ".";
 
 interface BulletPointsProps {
   bulletPoints: IBulletPoint[];

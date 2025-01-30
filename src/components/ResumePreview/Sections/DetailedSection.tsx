@@ -1,10 +1,9 @@
 import { Fragment } from "react";
 import styled from "styled-components";
-import { type DetailedEntry as IDetailedEntry } from "../../types";
+import { type DetailedEntry as IDetailedEntry } from "../../../types";
 
-import BaseSection from "./BaseSection";
-import SectionTitle from "./SectionTitle";
-import DetailedEntry from "./DetailedEntry";
+import { BaseSection, SectionTitle } from ".";
+import { DetailedEntry } from "../Entries";
 
 interface DetailedSectionProps {
   title: string;
