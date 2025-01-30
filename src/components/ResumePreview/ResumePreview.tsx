@@ -18,7 +18,15 @@ interface ResumePreviewProps {
 }
 
 export default function ResumePreview({ resume }: ResumePreviewProps) {
-  const { education, experience, projects, skills, achievements } = resume;
+  const {
+    education,
+    experience,
+    projects,
+    skills,
+    achievements,
+    interests,
+    languages,
+  } = resume;
   const { profile, ...personal } = resume.personal;
 
   const ref = useRef<HTMLDivElement | null>(null);
@@ -27,12 +35,26 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
     if (!ref.current) return;
     const root = html2pdf();
     root
-      //   .set({
-      //     pagebreak: {
-      //       mode: ["avoid-all", "css"],
-      //       avoid: "img",
-      //     },
-      //   })
+      .set({
+        pagebreak: {
+          mode: ["avoid-all", "css"],
+          avoid: "img",
+        },
+        //   image: {
+        //     type: 'jpeg',
+        //     quality: 0.98,
+        //   },
+        //   html2canvas: {
+        //     dpi: 96,
+        //     letterRendering: true,
+        //     height: 10000 // doesnt really help
+        //   },
+        //   jsPDF: {
+        //     unit: 'in',
+        //     format: 'letter',
+        //     orientation: 'portrait'
+        //   }
+      })
       .from(ref.current, "element")
       .save("mypdf.pdf");
   }
@@ -54,6 +76,10 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
         <ListSection title="Skills" entries={skills} />
         <Spacer size={16} />
         <DetailedListSection title="Achievements" entries={achievements} />
+        <Spacer size={16} />
+        <ListSection title="Interests" entries={interests} />
+        <Spacer size={16} />
+        <ListSection title="Languages" entries={languages} />
       </Container>
     </>
   );
@@ -68,8 +94,5 @@ const Container = styled.div`
   font-family: "Roboto", Helvetica, sans-serif;
   padding: var(--md) var(--lg);
   font-size: 1rem;
-  max-height: calc(
-    100dvh - 5dvh - var(--sm) * 2 - var(--sm) * 2 - var(--md) * 2
-  );
   overflow-y: auto;
 `;
