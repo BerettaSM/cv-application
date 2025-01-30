@@ -29,6 +29,6 @@ const Container = styled.ul`
   list-style: none;
   padding-inline-start: 0;
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: max-content repeat(2, 1fr);
   grid-template-rows: auto;
 `;

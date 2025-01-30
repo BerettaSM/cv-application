@@ -8,6 +8,7 @@ import {
   SimpleSection,
   DetailedSection,
   ListSection,
+  DetailedListSection,
 } from "./Sections";
 import { PADDING } from "../../constants";
 import Spacer from "../Spacer";
@@ -17,7 +18,7 @@ interface ResumePreviewProps {
 }
 
 export default function ResumePreview({ resume }: ResumePreviewProps) {
-  const { education, experience, projects, skills } = resume;
+  const { education, experience, projects, skills, achievements } = resume;
   const { profile, ...personal } = resume.personal;
 
   const ref = useRef<HTMLDivElement | null>(null);
@@ -51,6 +52,8 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
         <DetailedSection title="Projects" entries={projects} />
         <Spacer size={16} />
         <ListSection title="Skills" entries={skills} />
+        <Spacer size={16} />
+        <DetailedListSection title="Achievements" entries={achievements} />
       </Container>
     </>
   );

@@ -24,8 +24,8 @@ const Container = styled.li`
   font-size: 0.6rem;
   display: grid;
   grid-template-columns: subgrid;
-  grid-column: 1 / 3;
-  gap: ${() => PADDING.sm};
+  grid-column: 1 / -1;
+  gap: ${() => PADDING.md};
   align-items: baseline;
 `;
 
@@ -39,6 +39,6 @@ const Title = styled.strong`
 
 const Description = styled.span`
   font-weight: 300;
-  grid-column: 2 / 3;
+  grid-column: 2 / 4;
   justify-self: start;
 `;
