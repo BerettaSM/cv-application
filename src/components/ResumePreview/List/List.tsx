@@ -18,7 +18,7 @@ export default function List<T extends SimpleEntry>({
       <Spacer size={8} />
       <Container>
         {items.map((item) => (
-          <Li key={item.title} entry={item} />
+          <Li key={item.id} entry={item} />
         ))}
       </Container>
     </>

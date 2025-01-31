@@ -1,13 +1,15 @@
 import styled from "styled-components";
-import { type SimpleEntry as SimpleEntryProps } from "../../../types";
+import { type SimpleEntry } from "../../../types";
 
 import { PADDING } from "../../../constants";
 import { BaseSection, SectionTitle } from ".";
 
+type SimpleSectionsProps = Omit<SimpleEntry, "id">;
+
 export default function SimpleSection({
   title,
   description,
-}: SimpleEntryProps) {
+}: SimpleSectionsProps) {
   return (
     <Container>
       <SectionTitle>{title}</SectionTitle>

@@ -18,7 +18,7 @@ export default function DetailedSection({
     <Container>
       <SectionTitle>{title}</SectionTitle>
       {entries.map((entry) => (
-        <Fragment key={entry.title}>
+        <Fragment key={entry.id}>
           <DetailedEntry entry={entry} />
         </Fragment>
       ))}
