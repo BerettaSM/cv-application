@@ -72,12 +72,60 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
     [],
   );
 
+  //   const updateValue = useCallback((path: string, value: string) => {
+  //     const tokens = path.replace(/\s+/g, '').split('.');
+  //     const updatedResume = { ...resume };
+  //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  //     let e: any = updatedResume;
+  //     for(let i = 0; i < tokens.length; i++) {
+  //         if(i !== tokens.length - 1) {
+  //             if(Array.isArray(e)) {
+  //                 e = [...e];
+  //             }
+  //             else if(typeof e === 'object' && e !== null) {
+  //                 e = { ...e };
+  //             }
+  //             e = e[tokens[i]];
+  //         }
+  //         else {
+  //             e[tokens[i]] = value;
+  //         }
+  //     }
+  //     setResume(updatedResume);
+  //   }, [resume]);
+
+  const updateValue = useCallback(
+    (path: string) => {
+      return (event: React.ChangeEvent<HTMLInputElement>) => {
+        const tokens = path.replace(/\s+/g, "").split(".");
+        const updatedResume = { ...resume };
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        let e: any = updatedResume;
+        for (let i = 0; i < tokens.length; i++) {
+          if (i !== tokens.length - 1) {
+            if (Array.isArray(e)) {
+              e = [...e];
+            } else if (typeof e === "object" && e !== null) {
+              e = { ...e };
+            }
+            e = e[tokens[i]];
+          } else {
+            e[tokens[i]] = event.target.value;
+          }
+        }
+        setResume(updatedResume);
+      };
+    },
+    [resume],
+  );
+
   const context = {
     resume,
     resetResume,
     createEntry,
     deleteEntry,
     createBulletPoint,
+    updateValue,
   };
 
   return (
