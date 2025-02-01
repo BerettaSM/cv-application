@@ -1,6 +1,6 @@
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import styled from "styled-components";
-import { type Resume } from "../../types";
+import { SimpleEntry, type Resume } from "../../types";
 import html2pdf from "html2pdf.js";
 
 import {
@@ -59,6 +59,46 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
       .save("mypdf.pdf");
   }
 
+  const sections: { id: string; arr: SimpleEntry[]; element: JSX.Element }[] = [
+    {
+      arr: education,
+      id: "Education",
+      element: <DetailedSection title="Education" entries={education} />,
+    },
+    {
+      arr: experience,
+      id: "Work Experience",
+      element: <DetailedSection title="Work Experience" entries={experience} />,
+    },
+    {
+      arr: projects,
+      id: "Projects",
+      element: <DetailedSection title="Projects" entries={projects} />,
+    },
+    {
+      arr: skills,
+      id: "Skills",
+      element: <ListSection title="Skills" entries={skills} />,
+    },
+    {
+      arr: achievements,
+      id: "Achievements",
+      element: (
+        <DetailedListSection title="Achievements" entries={achievements} />
+      ),
+    },
+    {
+      arr: interests,
+      id: "Interests",
+      element: <ListSection title="Interests" entries={interests} />,
+    },
+    {
+      arr: languages,
+      id: "Languages",
+      element: <ListSection title="Languages" entries={languages} />,
+    },
+  ];
+
   return (
     <>
       <button onClick={doIt}>Save?</button>
@@ -66,6 +106,16 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
         <PersonalSection personal={personal} />
         <Spacer size={16} />
         <SimpleSection title="Personal Profile" description={profile} />
+        {sections
+          .filter(({ arr }) => arr.length > 0)
+          .map(({ id, element: Element }) => (
+            <Fragment key={id}>
+              <Spacer size={16} />
+              {Element}
+            </Fragment>
+          ))}
+
+        {/* 
         <Spacer size={16} />
         <DetailedSection title="Education" entries={education} />
         <Spacer size={16} />
@@ -79,7 +129,7 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
         <Spacer size={16} />
         <ListSection title="Interests" entries={interests} />
         <Spacer size={16} />
-        <ListSection title="Languages" entries={languages} />
+        <ListSection title="Languages" entries={languages} /> */}
       </Container>
     </>
   );

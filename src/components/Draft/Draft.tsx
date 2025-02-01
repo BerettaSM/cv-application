@@ -5,15 +5,16 @@ import ResumePreview from "../ResumePreview/ResumePreview";
 // import resume from "../../data/example.json";
 import { BORDER_RADIUS, PADDING } from "../../constants";
 import { useResume } from "../../hooks";
+// import { useEffect } from "react";
 
 export default function Draft() {
-  const { resume /*createEntry, resetResume */ } = useResume();
+  const { resume /*createEntry, resetResume*/ } = useResume();
 
   console.log(resume);
 
-  // useEffect(() => {
-  //     createEntry('skills')
-  // }, [createEntry])
+  //   useEffect(() => {
+  //       createEntry('skills')
+  //   }, [createEntry])
 
   return (
     <Container>
