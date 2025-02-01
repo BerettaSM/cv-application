@@ -2,10 +2,19 @@ import styled from "styled-components";
 
 import ResumePreview from "../ResumePreview/ResumePreview";
 
-import resume from "../../data/example.json";
+// import resume from "../../data/example.json";
 import { BORDER_RADIUS, PADDING } from "../../constants";
+import { useResume } from "../../hooks";
 
 export default function Draft() {
+  const { resume /*createEntry, resetResume */ } = useResume();
+
+  console.log(resume);
+
+  // useEffect(() => {
+  //     createEntry('skills')
+  // }, [createEntry])
+
   return (
     <Container>
       <ResumePreviewWrapper>
@@ -26,4 +35,5 @@ const ResumePreviewWrapper = styled.div`
   background-color: var(--THEME_COLOR_02);
   padding: ${() => PADDING.sm};
   border-radius: ${() => BORDER_RADIUS};
+  width: 100%;
 `;

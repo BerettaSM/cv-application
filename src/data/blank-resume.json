@@ -1,0 +1,21 @@
+{
+  "personal": {
+    "name": "Your name here",
+    "address": "Your address here",
+    "socials": {
+      "phone": "123 45678-9012",
+      "email": "example@email.com",
+      "website": "",
+      "github": "",
+      "linkedIn": ""
+    },
+    "profile": "Write something about yourself here."
+  },
+  "education": [],
+  "experience": [],
+  "projects": [],
+  "skills": [],
+  "achievements": [],
+  "interests": [],
+  "languages": []
+}

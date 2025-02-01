@@ -7,11 +7,13 @@ export interface Socials {
 }
 
 export interface BulletPoint {
+  id: string;
   bold: string | null;
   text: string;
 }
 
 export interface SimpleEntry {
+  id: string;
   title: string;
   description: string;
 }
@@ -44,3 +46,14 @@ export interface Resume {
   interests: SimpleEntry[];
   languages: SimpleEntry[];
 }
+
+export type Entries = {
+  readonly [K in keyof Omit<Resume, "personal">]: Resume[K][0];
+};
+
+export type EntriesKey = keyof Entries;
+
+export type BulletPointEntryKey = Extract<
+  EntriesKey,
+  "education" | "experience" | "projects"
+>;
