@@ -114,22 +114,6 @@ export default function ResumePreview({ resume }: ResumePreviewProps) {
               {Element}
             </Fragment>
           ))}
-
-        {/* 
-        <Spacer size={16} />
-        <DetailedSection title="Education" entries={education} />
-        <Spacer size={16} />
-        <DetailedSection title="Work Experience" entries={experience} />
-        <Spacer size={16} />
-        <DetailedSection title="Projects" entries={projects} />
-        <Spacer size={16} />
-        <ListSection title="Skills" entries={skills} />
-        <Spacer size={16} />
-        <DetailedListSection title="Achievements" entries={achievements} />
-        <Spacer size={16} />
-        <ListSection title="Interests" entries={interests} />
-        <Spacer size={16} />
-        <ListSection title="Languages" entries={languages} /> */}
       </Container>
     </>
   );

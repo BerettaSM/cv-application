@@ -25,8 +25,11 @@ const entries: Entries = {
   skills: blankSimpleEntry,
 };
 
+import example from "../data/example.json";
+
 export default function ResumeContextProvider({ children }: PropsWithChildren) {
-  const [resume, setResume] = useState<Resume>(deepCopy(blankResume));
+  // TODO: Change back after testing
+  const [resume, setResume] = useState<Resume>(deepCopy(example));
 
   const resetResume = useCallback(() => {
     setResume(deepCopy(blankResume));
@@ -72,12 +75,55 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
     [],
   );
 
+  const deleteBulletPoint = useCallback(
+    (section: BulletPointEntryKey, entryId: string, bulletPointId: string) => {
+      setResume((prevResume) => {
+        const entry = prevResume[section].find((e) => e.id === entryId);
+        if (!entry) return prevResume;
+        const bulletPointIndex = entry.bulletPoints.findIndex(
+          (b) => b.id === bulletPointId,
+        );
+        if (bulletPointIndex === -1) return prevResume;
+        const updatedResume = { ...prevResume };
+        entry.bulletPoints.splice(bulletPointIndex, 1);
+        return updatedResume;
+      });
+    },
+    [],
+  );
+
+  const updateValue = useCallback((path: string) => {
+    return (event: React.ChangeEvent<HTMLInputElement>) => {
+      setResume((prevResume) => {
+        const tokens = path.replace(/\s+/g, "").split(".");
+        const updatedResume = { ...prevResume };
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        let e: any = updatedResume;
+        for (let i = 0; i < tokens.length; i++) {
+          if (i !== tokens.length - 1) {
+            if (Array.isArray(e)) {
+              e = [...e];
+            } else if (typeof e === "object" && e !== null) {
+              e = { ...e };
+            }
+            e = e[tokens[i]];
+          } else {
+            e[tokens[i]] = event.target.value;
+          }
+        }
+        return updatedResume;
+      });
+    };
+  }, []);
+
   const context = {
     resume,
     resetResume,
     createEntry,
     deleteEntry,
     createBulletPoint,
+    deleteBulletPoint,
+    updateValue,
   };
 
   return (

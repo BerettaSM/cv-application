@@ -10,8 +10,6 @@ import { useResume } from "../../hooks";
 export default function Draft() {
   const { resume /*createEntry, resetResume*/ } = useResume();
 
-  console.log(resume);
-
   //   useEffect(() => {
   //       createEntry('skills')
   //   }, [createEntry])

@@ -4,12 +4,14 @@ import MaxWidthWrapper from "../MaxWidthWrapper";
 import Draft from "../Draft";
 import Form from "../Form";
 import { PADDING } from "../../constants";
+import Spacer from "../Spacer";
 // import Actions from "./Actions";
 
 export default function ResumeGenerator() {
   return (
     <Container>
       <Title>CV Generator</Title>
+      <Spacer size={32} />
       <Main>
         <Form />
         <Draft />
@@ -37,7 +39,7 @@ const Main = styled.main`
   flex: 1;
   background-color: var(--THEME_COLOR_03);
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 8px;
   padding: ${() => PADDING.sm};
 `;

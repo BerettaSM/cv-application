@@ -11,6 +11,8 @@ export const GlobalStyle = createGlobalStyle`
         --COLOR_GRAY-500: hsl(0, 0%, 50%);
         --COLOR_GRAY-700: hsl(0, 0%, 75%);
         --COLOR_GRAY-900: hsl(0, 0%, 90%);
+        --COLOR_RED-300:hsl(0, 78.50%, 49.20%);
+        --COLOR_RED-900:hsl(0, 44.30%, 81.00%);
     }
 
     *,
