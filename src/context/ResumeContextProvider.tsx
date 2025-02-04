@@ -72,33 +72,28 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
     [],
   );
 
-  //   const updateValue = useCallback((path: string, value: string) => {
-  //     const tokens = path.replace(/\s+/g, '').split('.');
-  //     const updatedResume = { ...resume };
-  //     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  //     let e: any = updatedResume;
-  //     for(let i = 0; i < tokens.length; i++) {
-  //         if(i !== tokens.length - 1) {
-  //             if(Array.isArray(e)) {
-  //                 e = [...e];
-  //             }
-  //             else if(typeof e === 'object' && e !== null) {
-  //                 e = { ...e };
-  //             }
-  //             e = e[tokens[i]];
-  //         }
-  //         else {
-  //             e[tokens[i]] = value;
-  //         }
-  //     }
-  //     setResume(updatedResume);
-  //   }, [resume]);
+  const deleteBulletPoint = useCallback(
+    (section: BulletPointEntryKey, entryId: string, bulletPointId: string) => {
+      setResume((prevResume) => {
+        const entry = prevResume[section].find((e) => e.id === entryId);
+        if (!entry) return prevResume;
+        const bulletPointIndex = entry.bulletPoints.findIndex(
+          (b) => b.id === bulletPointId,
+        );
+        if (bulletPointIndex === -1) return prevResume;
+        const updatedResume = { ...prevResume };
+        entry.bulletPoints.splice(bulletPointIndex, 1);
+        return updatedResume;
+      });
+    },
+    [],
+  );
 
-  const updateValue = useCallback(
-    (path: string) => {
-      return (event: React.ChangeEvent<HTMLInputElement>) => {
+  const updateValue = useCallback((path: string) => {
+    return (event: React.ChangeEvent<HTMLInputElement>) => {
+      setResume((prevResume) => {
         const tokens = path.replace(/\s+/g, "").split(".");
-        const updatedResume = { ...resume };
+        const updatedResume = { ...prevResume };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         let e: any = updatedResume;
         for (let i = 0; i < tokens.length; i++) {
@@ -113,11 +108,10 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
             e[tokens[i]] = event.target.value;
           }
         }
-        setResume(updatedResume);
-      };
-    },
-    [resume],
-  );
+        return updatedResume;
+      });
+    };
+  }, []);
 
   const context = {
     resume,
@@ -125,6 +119,7 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
     createEntry,
     deleteEntry,
     createBulletPoint,
+    deleteBulletPoint,
     updateValue,
   };
 
