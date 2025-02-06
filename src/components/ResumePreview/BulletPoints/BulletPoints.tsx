@@ -11,7 +11,7 @@ export default function BulletPoints({ bulletPoints }: BulletPointsProps) {
   return (
     <Container>
       {bulletPoints.map((bp) => (
-        <BulletPoint key={bp.text} bulletPoint={bp} />
+        <BulletPoint key={bp.id} bulletPoint={bp} />
       ))}
     </Container>
   );

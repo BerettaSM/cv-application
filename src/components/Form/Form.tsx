@@ -4,9 +4,18 @@ import styled from "styled-components";
 import { BORDER_RADIUS, PADDING } from "../../constants";
 import { TextInput } from "../Inputs";
 import { useResume } from "../../hooks";
+import { SectionInput } from "../Inputs";
+import Spacer from "../Spacer";
 
 export default function CVForm() {
-  const { resume, updateValue } = useResume();
+  const {
+    resume,
+    updateValue,
+    createEntry,
+    deleteEntry,
+    createBulletPoint,
+    deleteBulletPoint,
+  } = useResume();
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -15,15 +24,15 @@ export default function CVForm() {
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} noValidate>
+      <Spacer size={16} />
       <Title>Personal Profile</Title>
-
+      <Spacer size={16} />
       <InputGrouper>
         <TextInput
           label="Name"
           placeholder="John Doe"
           value={resume.personal.name}
-          //   onChange={(e) => updateValue("personal.name", e.target.value)}
           onChange={updateValue("personal.name")}
         />
         <TextInput
@@ -74,8 +83,28 @@ export default function CVForm() {
         />
       </InputGrouper>
 
-      <Submit>Submit</Submit>
+      <Separator />
+
+      <SectionInput
+        onAdd={createEntry}
+        onDelete={deleteEntry}
+        section="education"
+        entries={resume.education}
+        onUpdate={updateValue}
+        onAddBulletPoint={createBulletPoint}
+        onDeleteBulletPoint={deleteBulletPoint}
+      />
     </Form>
+  );
+}
+
+function Separator() {
+  return (
+    <>
+      <Spacer size={16} />
+      <HR />
+      <Spacer size={16} />
+    </>
   );
 }
 
@@ -86,7 +115,9 @@ const Form = styled.form`
   border-radius: ${() => BORDER_RADIUS};
 `;
 
-const Title = styled.h3``;
+const Title = styled.h3`
+  font-size: 1.5rem;
+`;
 
 const InputGrouper = styled.div`
   display: grid;
@@ -96,4 +127,6 @@ const InputGrouper = styled.div`
   gap: ${() => PADDING.sm};
 `;
 
-const Submit = styled.button``;
+const HR = styled.hr`
+  color: var(--THEME_COLOR_01);
+`;

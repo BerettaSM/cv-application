@@ -25,8 +25,11 @@ const entries: Entries = {
   skills: blankSimpleEntry,
 };
 
+import example from "../data/example.json";
+
 export default function ResumeContextProvider({ children }: PropsWithChildren) {
-  const [resume, setResume] = useState<Resume>(deepCopy(blankResume));
+  // TODO: Change back after testing
+  const [resume, setResume] = useState<Resume>(deepCopy(example));
 
   const resetResume = useCallback(() => {
     setResume(deepCopy(blankResume));

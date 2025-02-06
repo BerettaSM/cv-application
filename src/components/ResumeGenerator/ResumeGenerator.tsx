@@ -37,7 +37,7 @@ const Main = styled.main`
   flex: 1;
   background-color: var(--THEME_COLOR_03);
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 8px;
   padding: ${() => PADDING.sm};
 `;

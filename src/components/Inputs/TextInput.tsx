@@ -1,7 +1,6 @@
 import { useId, type ComponentProps } from "react";
 import styled from "styled-components";
 import { PADDING } from "../../constants";
-// import { PADDING } from "../../constants";
 
 interface TextInputProps extends ComponentProps<"input"> {
   label: string;
@@ -19,17 +18,11 @@ export default function TextInput({ label, as, ...delegated }: TextInputProps) {
   );
 }
 
-// const Container = styled.div`
-//     display: grid;
-//     grid-template-columns: subgrid;
-//     grid-template-rows: 1fr;
-//     gap: ${() => PADDING.md}
-// `;
-
 const Label = styled.label`
   justify-self: end;
   grid-column: 1 / span 1;
   width: max-content;
+  text-transform: capitalize;
 `;
 
 const Input = styled.input`
@@ -37,4 +30,5 @@ const Input = styled.input`
   border-radius: 8px;
   padding-inline: ${() => PADDING.sm} 4px;
   font-size: 1.25rem;
+  resize: none;
 `;
