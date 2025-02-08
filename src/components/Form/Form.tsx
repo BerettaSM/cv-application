@@ -1,11 +1,12 @@
-import { type FormEvent, useCallback, useState } from "react";
 import styled from "styled-components";
+import { useCallback, useState } from "react";
 
 import type { Resume } from "../../types";
 import { BORDER_RADIUS, PADDING } from "../../constants";
 import { PersonalSectionInput, SectionInput } from "../Inputs";
 import { useResume } from "../../hooks";
-import Tabs from "../Inputs/Tabs";
+import { Tabs } from "../Inputs";
+import Actions from "../Actions";
 
 export default function CVForm() {
   const {
@@ -16,6 +17,8 @@ export default function CVForm() {
     createBulletPoint,
     deleteBulletPoint,
   } = useResume();
+
+  const resumeKeys = Object.keys(resume);
 
   const [selectedTab, setSelectedTab] = useState<keyof Resume>("personal");
 
@@ -94,35 +97,31 @@ export default function CVForm() {
     ),
   };
 
-  function handleSubmit(event: FormEvent) {
-    event.preventDefault();
-
-    console.log("Submitted");
-  }
-
-  const resumeKeys = Object.keys(resume);
-
   const handleTabChange = useCallback((newTab: keyof Resume) => {
     setSelectedTab(newTab);
   }, []);
 
   return (
-    <Form onSubmit={handleSubmit} noValidate>
+    <Form>
       <Tabs
         entries={resumeKeys}
         onChange={handleTabChange}
         selectedTab={selectedTab}
       />
-
+      <Actions />
       {inputs[selectedTab]}
     </Form>
   );
 }
 
-const Form = styled.form`
+const Form = styled.section`
   position: relative;
   flex: 1 1 0px;
   background-color: var(--THEME_COLOR_02);
   padding: ${() => PADDING.sm};
   border-radius: ${() => BORDER_RADIUS};
+
+  @media print {
+    display: none;
+  }
 `;

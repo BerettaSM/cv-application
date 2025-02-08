@@ -1,23 +1,16 @@
 import styled from "styled-components";
-
-import ResumePreview from "../ResumePreview/ResumePreview";
-
-// import resume from "../../data/example.json";
-import { BORDER_RADIUS, PADDING } from "../../constants";
 import { useResume } from "../../hooks";
-// import { useEffect } from "react";
+
+import ResumePreview from "../ResumePreview";
+import { BORDER_RADIUS, PADDING } from "../../constants";
 
 export default function Draft() {
-  const { resume /*createEntry, resetResume*/ } = useResume();
-
-  //   useEffect(() => {
-  //       createEntry('skills')
-  //   }, [createEntry])
+  const { resume, previewRef } = useResume();
 
   return (
     <Container>
       <ResumePreviewWrapper>
-        <ResumePreview resume={resume} />
+        <ResumePreview resume={resume} ref={previewRef} />
       </ResumePreviewWrapper>
     </Container>
   );
@@ -35,4 +28,8 @@ const ResumePreviewWrapper = styled.div`
   padding: ${() => PADDING.sm};
   border-radius: ${() => BORDER_RADIUS};
   width: 100%;
+
+  @media print {
+    padding: 0;
+  }
 `;

@@ -4,6 +4,7 @@ import type { BulletPointEntryKey, EntriesKey, Resume } from "../types";
 
 interface ResumeContextProps {
   resume: Resume;
+  previewRef: React.MutableRefObject<HTMLDivElement | null>;
   resetResume: () => void;
   createEntry: (sectionKey: EntriesKey) => void;
   deleteEntry: (sectionKey: EntriesKey, entryId: string) => void;
@@ -16,6 +17,7 @@ interface ResumeContextProps {
   updateValue: (
     path: string,
   ) => (event: React.ChangeEvent<HTMLInputElement>) => void;
+  downloadResume(): void;
 }
 
 const ResumeContext = createContext({} as ResumeContextProps);

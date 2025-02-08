@@ -5,17 +5,17 @@ import Draft from "../Draft";
 import Form from "../Form";
 import { PADDING } from "../../constants";
 import Spacer from "../Spacer";
-// import Actions from "./Actions";
 
 export default function ResumeGenerator() {
   return (
     <Container>
-      <Title>CV Generator</Title>
-      <Spacer size={32} />
+      <TitleWrapper>
+        <Title>CV Generator</Title>
+        <Spacer size={32} />
+      </TitleWrapper>
       <Main>
         <Form />
         <Draft />
-        {/* <Actions /> */}
       </Main>
     </Container>
   );
@@ -26,6 +26,10 @@ const Container = styled(MaxWidthWrapper)`
   display: flex;
   padding-block: ${() => PADDING.md};
   flex-direction: column;
+
+  @media print {
+    padding: 0;
+  }
 `;
 
 const Title = styled.h1`
@@ -35,6 +39,12 @@ const Title = styled.h1`
   height: 5dvh;
 `;
 
+const TitleWrapper = styled.div`
+  @media print {
+    display: none;
+  }
+`;
+
 const Main = styled.main`
   flex: 1;
   background-color: var(--THEME_COLOR_03);
@@ -42,4 +52,8 @@ const Main = styled.main`
   align-items: start;
   gap: 8px;
   padding: ${() => PADDING.sm};
+
+  @media print {
+    padding: 0;
+  }
 `;

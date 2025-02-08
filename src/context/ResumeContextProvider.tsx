@@ -1,4 +1,4 @@
-import { useCallback, useState, type PropsWithChildren } from "react";
+import { useCallback, useRef, useState, type PropsWithChildren } from "react";
 
 import type {
   BulletPointEntryKey,
@@ -8,6 +8,7 @@ import type {
 } from "../types";
 import { deepCopy } from "../utils";
 import { ResumeContext } from ".";
+import html2pdf from "html2pdf.js";
 
 import blankResume from "../data/blank-resume.json";
 import blankBulletpoint from "../data/blank-bulletpoint.json";
@@ -30,6 +31,7 @@ import example from "../data/example.json";
 export default function ResumeContextProvider({ children }: PropsWithChildren) {
   // TODO: Change back after testing
   const [resume, setResume] = useState<Resume>(deepCopy(example));
+  const previewRef = useRef<HTMLDivElement | null>(null);
 
   const resetResume = useCallback(() => {
     setResume(deepCopy(blankResume));
@@ -116,6 +118,20 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
     };
   }, []);
 
+  const downloadResume = useCallback((name: string = "resume") => {
+    if (!previewRef.current) return;
+    const root = html2pdf();
+    root
+      .set({
+        pagebreak: {
+          mode: ["avoid-all", "css"],
+          avoid: "img",
+        },
+      })
+      .from(previewRef.current, "element")
+      .save(`${name}.pdf`);
+  }, []);
+
   const context = {
     resume,
     resetResume,
@@ -124,6 +140,8 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
     createBulletPoint,
     deleteBulletPoint,
     updateValue,
+    previewRef,
+    downloadResume,
   };
 
   return (
