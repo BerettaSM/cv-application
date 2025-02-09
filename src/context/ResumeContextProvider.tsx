@@ -120,6 +120,7 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
 
   const downloadResume = useCallback((name: string = "resume") => {
     if (!previewRef.current) return;
+
     const root = html2pdf();
     root
       .set({

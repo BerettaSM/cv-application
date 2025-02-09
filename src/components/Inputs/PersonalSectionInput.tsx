@@ -94,7 +94,7 @@ export default function PersonalSectionInput({
 
 const Container = styled.div`
   display: grid;
-  grid-template-columns: max-content 1fr;
+  grid-template-columns: min-content 1fr;
   grid-template-rows: auto;
   align-items: center;
   gap: ${() => PADDING.sm};
@@ -102,4 +102,5 @@ const Container = styled.div`
 
 const Title = styled.h3`
   font-size: 1.5rem;
+  grid-column: 1 / -1;
 `;
