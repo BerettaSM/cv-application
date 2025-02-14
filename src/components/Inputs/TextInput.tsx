@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { PADDING } from "../../constants";
 
 interface TextInputProps extends ComponentProps<"input"> {
-  label: string;
+  label?: string;
   as?: "textarea";
 }
 
@@ -12,7 +12,7 @@ export default function TextInput({ label, as, ...delegated }: TextInputProps) {
 
   return (
     <>
-      <Label htmlFor={id}>{label}</Label>
+      {label && <Label htmlFor={id}>{label}</Label>}
       <Input as={as || ""} id={id} {...delegated} />
     </>
   );
