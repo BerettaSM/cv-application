@@ -28,7 +28,7 @@ export default function EntryInput<U extends Resume[EntriesKey][0]>({
 
   return (
     <Container>
-      <Title>Entry (#{index})</Title>
+      <Title>Entry (#{index + 1})</Title>
       <Spacer size={8} />
       <InputWrapper>
         {keys.map((key) => (

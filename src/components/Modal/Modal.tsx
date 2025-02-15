@@ -22,17 +22,24 @@ export default function Modal({
   hideCloseButton,
   children,
 }: ModalProps) {
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(
+    event: React.SyntheticEvent<HTMLFormElement, SubmitEvent>,
+  ) {
     event.preventDefault();
     if (!onSubmit) return;
-    onSubmit(new FormData(event.currentTarget));
+    const data = new FormData(event.currentTarget);
+    const submitter = event.nativeEvent.submitter;
+    if (submitter) {
+      data.set("action", submitter.getAttribute("data-action") || "");
+    }
+    onSubmit(data);
   }
 
   return (
     <Wrapper modal open={isOpen}>
       <Dialog.Portal>
         <Backdrop onClick={onClose}>
-          <Content>
+          <Content onClick={(e) => e.stopPropagation()}>
             <Form onSubmit={handleSubmit}>
               {children}
               {!hideCloseButton && (

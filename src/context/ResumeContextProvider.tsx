@@ -1,15 +1,18 @@
 import { useCallback, useRef, useState, type PropsWithChildren } from "react";
 
+import { useLocalStorage } from "../hooks";
 import type {
   BulletPointEntryKey,
   Entries,
   EntriesKey,
   Resume,
+  SavedResume,
 } from "../types";
 import { deepCopy } from "../utils";
 import { ResumeContext } from ".";
 import html2pdf from "html2pdf.js";
 
+import example from "../data/example.json";
 import blankResume from "../data/blank-resume.json";
 import blankBulletpoint from "../data/blank-bulletpoint.json";
 import blankDetailedEntry from "../data/blank-detailed-entry.json";
@@ -26,11 +29,18 @@ const entries: Entries = {
   skills: blankSimpleEntry,
 };
 
-import example from "../data/example.json";
+export const LOCAL_STORAGE_ID = "@RESUMES";
+const INITIAL_STATE: SavedResume[] = [
+  { id: "example", resume: example, displayName: "Example resume" },
+];
 
 export default function ResumeContextProvider({ children }: PropsWithChildren) {
-  // TODO: Change back after testing
-  const [resume, setResume] = useState<Resume>(deepCopy(example));
+  const { storage, updateLocalStorage } = useLocalStorage<SavedResume[]>(
+    LOCAL_STORAGE_ID,
+    INITIAL_STATE,
+  );
+
+  const [resume, setResume] = useState<Resume>(deepCopy(blankResume));
   const previewRef = useRef<HTMLDivElement | null>(null);
 
   const resetResume = useCallback(() => {
@@ -133,16 +143,58 @@ export default function ResumeContextProvider({ children }: PropsWithChildren) {
       .save(`${name}.pdf`);
   }, []);
 
+  const loadResume = useCallback(
+    (resumeId: string) => {
+      const foundResume = storage.find(
+        (saved) => saved.id === resumeId,
+      )?.resume;
+      if (foundResume) {
+        setResume(foundResume);
+      }
+    },
+    [storage],
+  );
+
+  const saveResume = useCallback(
+    (resume: Resume, name: string) => {
+      updateLocalStorage([
+        {
+          id: crypto.randomUUID(),
+          displayName: name,
+          resume,
+        },
+        ...storage,
+      ]);
+    },
+    [storage, updateLocalStorage],
+  );
+
+  const deleteResume = useCallback(
+    (resumeId: string) => {
+      const deletedResume = storage.find((saved) => saved.id === resumeId);
+      if (!deletedResume) throw new Error("Resume could not be found");
+      const updatedStorage = storage.filter(
+        (resume) => resume.id !== deletedResume.id,
+      );
+      updateLocalStorage(updatedStorage);
+    },
+    [storage, updateLocalStorage],
+  );
+
   const context = {
     resume,
+    previewRef,
+    savedResumes: storage,
     resetResume,
     createEntry,
     deleteEntry,
     createBulletPoint,
     deleteBulletPoint,
     updateValue,
-    previewRef,
     downloadResume,
+    loadResume,
+    saveResume,
+    deleteResume,
   };
 
   return (

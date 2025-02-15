@@ -1,4 +1,10 @@
-import { ChangeEvent, useId, useState } from "react";
+import {
+  type ChangeEvent,
+  useCallback,
+  useEffect,
+  useId,
+  useState,
+} from "react";
 import styled from "styled-components";
 import { PADDING } from "../../constants";
 
@@ -6,6 +12,7 @@ interface RadioInputProps<T, U extends string, V extends string> {
   title: string;
   entries: T[];
   selected?: V;
+  name?: string;
   labelMapper(value: T): U;
   valueMapper(value: T): V;
   onChange?(e: ChangeEvent<HTMLInputElement>): void;
@@ -20,12 +27,27 @@ export default function RadioInput<T, U extends string, V extends string>({
   labelMapper,
   valueMapper,
   selected,
+  name,
   onChange,
   fallback = <Fallback />,
 }: RadioInputProps<T, U, V>) {
-  const [selectedValue, setSelectedValue] = useState<V>(
-    selected ?? valueMapper(entries[0]),
+  const getSelectedValue = useCallback(() => {
+    if (entries.length === 0) {
+      return null;
+    }
+    if (selected) {
+      return selected;
+    }
+    return valueMapper(entries[0]);
+  }, [selected, entries, valueMapper]);
+
+  const [selectedValue, setSelectedValue] = useState<V | null>(
+    getSelectedValue(),
   );
+
+  useEffect(() => {
+    setSelectedValue(getSelectedValue());
+  }, [entries, getSelectedValue]);
 
   function handleChange(e: ChangeEvent<HTMLInputElement>) {
     setSelectedValue(e.target.value as V);
@@ -35,7 +57,7 @@ export default function RadioInput<T, U extends string, V extends string>({
   }
 
   const componentId = useId();
-  const name = `${title}-${componentId}`;
+  const componentName = name ?? `${title}-${componentId}`;
 
   return (
     <Container>
@@ -48,14 +70,14 @@ export default function RadioInput<T, U extends string, V extends string>({
           {entries.map((entry) => {
             const label = labelMapper(entry);
             const value = valueMapper(entry);
-            const id = `${name}-${value}`;
+            const id = `${componentName}-${value}`;
             const isSelected = value === selectedValue;
 
             return (
               <RadioWrapper key={value} selected={isSelected}>
                 <Input
                   type="radio"
-                  name={name}
+                  name={componentName}
                   value={value}
                   id={id}
                   checked={isSelected}
@@ -97,6 +119,9 @@ const RadioWrapper = styled.div<{ selected: boolean }>`
   border-radius: 8px;
   cursor: pointer;
   padding: ${() => PADDING.sm};
+
+  max-width: 100%;
+
   &:hover {
     border-color: var(--THEME_COLOR_02);
     color: var(--THEME_COLOR_02);
@@ -113,9 +138,13 @@ const Input = styled.input`
 `;
 
 const Label = styled.label`
-  width: 100%;
   cursor: inherit;
   text-align: left;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 `;
 
 const Legend = styled.legend`

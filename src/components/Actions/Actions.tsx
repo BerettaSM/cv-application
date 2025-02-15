@@ -1,7 +1,10 @@
 import styled from "styled-components";
-import { Button } from "../Buttons";
 import { useResume } from "../../hooks";
+
+import { Button } from "../Buttons";
+import { LoadButton } from ".";
 import { PADDING } from "../../constants";
+import SaveButton from "./SaveButton";
 
 export default function Actions() {
   const { resetResume, downloadResume } = useResume();
@@ -14,8 +17,8 @@ export default function Actions() {
     <Container>
       <Button onClick={() => downloadResume()}>Download</Button>
       <Button onClick={handlePrint}>Print</Button>
-      <Button>Load</Button>
-      <Button>Save</Button>
+      <LoadButton />
+      <SaveButton />
       <Button mood="danger" onClick={resetResume}>
         Clear
       </Button>

@@ -28,7 +28,7 @@ const Label = styled.label`
 const Input = styled.input`
   grid-column: -2 / -1;
   border-radius: 8px;
-  padding-inline: ${() => PADDING.sm} 4px;
+  padding: 4px ${() => PADDING.sm};
   font-size: 1.25rem;
   resize: none;
 `;

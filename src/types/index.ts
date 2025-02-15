@@ -47,6 +47,12 @@ export interface Resume {
   languages: SimpleEntry[];
 }
 
+export interface SavedResume {
+  id: string;
+  displayName: string;
+  resume: Resume;
+}
+
 export type Entries = {
   readonly [K in keyof Omit<Resume, "personal">]: Resume[K][0];
 };
